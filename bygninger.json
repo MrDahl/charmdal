@@ -237,6 +237,44 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": []
+  },
+  {
+   "navn": "Selvudviklingscenter",
+   "type": "Andet",
+   "hold": "",
+   "status": "Planlagt",
+   "zone": [
+    [
+     666.9,
+     330.6
+    ],
+    [
+     651.6,
+     352.7
+    ],
+    [
+     780.9,
+     425.9
+    ],
+    [
+     867.7,
+     441.2
+    ],
+    [
+     869.4,
+     386.7
+    ],
+    [
+     755.4,
+     373.1
+    ]
+   ],
+   "periode": "10",
+   "tidsestimat": "",
+   "noegletal": "",
+   "beskrivelse": "whebfnwekf",
+   "filer": [],
+   "billeder": []
   }
  ]
 }
