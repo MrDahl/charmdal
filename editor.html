@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Charmdal – editor</title>
+<style>
+:root{--ink:#1c2a35;--mute:#5b6b78;--line:#d5dce2;--acc:#0f6b66}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 "Avenir Next","Segoe UI",system-ui,sans-serif;color:var(--ink);background:#eef1f4}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:14px;padding:14px}
+@media(max-width:1000px){.wrap{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px}
+svg{display:block;width:100%;height:auto;touch-action:none}
+svg.drawing{cursor:crosshair}svg.drawing .z{pointer-events:none}
+.z{cursor:pointer;stroke-width:5}.z.on{stroke:#000;stroke-width:7}
+label{display:block;font-weight:600;margin:8px 0 2px}
+input,select,textarea{width:100%;font:inherit;padding:6px 8px;border:1px solid #b9c3cb;border-radius:6px}
+textarea{min-height:64px}
+button{font:inherit;padding:6px 12px;border:1px solid var(--acc);background:#fff;color:var(--acc);border-radius:6px;cursor:pointer}
+button.p{background:var(--acc);color:#fff}
+:focus-visible{outline:3px solid #7fb8b3}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;align-items:center}
+#list button{display:block;width:100%;text-align:left;margin:2px 0;border-color:var(--line);color:var(--ink)}
+#list .on{background:#e3f1f0;border-color:var(--acc)}
+#msg{min-height:1.4em;font-weight:600}#msg.err{color:#a4262c}
+h2{font-size:1rem;margin:14px 0 4px}small{color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="card">
+  <div class="row">
+   <button class="p" id="draw">Tegn område</button><button id="done">Færdig</button><button id="cancel">Annuller</button>
+   <small id="hint">Vælg en bygning, og tryk "Tegn område". Træk i hjørnerne for at justere. Højreklik på et hjørne for at fjerne det.</small>
+  </div>
+  <svg id="map" viewBox="-153.6 -69.5 1843.2 834">
+   <image id="bg" x="-153.6" y="-69.5" width="1843.2" height="834"/>
+   <g id="zones"></g><g id="hand"></g>
+  </svg>
+ </div>
+ <div class="card">
+  <div class="row"><button class="p" id="new">Ny bygning</button><button id="del">Slet valgt</button></div>
+  <div id="list"></div>
+  <h2>Valgt bygning</h2>
+  <label for="f_navn">Navn</label><input id="f_navn">
+  <label for="f_type">Type</label><select id="f_type"></select>
+  <label for="f_status">Status</label><select id="f_status"><option>Projekteret</option><option>Planlagt</option></select>
+  <label for="f_hold">Hold</label><input id="f_hold">
+  <label for="f_periode">Periode</label><input id="f_periode">
+  <label for="f_tid">Tidsestimat</label><input id="f_tid">
+  <label for="f_nogle">Nøgletal</label><input id="f_nogle">
+  <label for="f_besk">Beskrivelse</label><textarea id="f_besk"></textarea>
+  <label for="f_filer">Bilag (ét pr. linje: Navn | sti eller link)</label><textarea id="f_filer"></textarea>
+  <h2>Hele siden</h2>
+  <label for="f_titel">Titel</label><input id="f_titel">
+  <label for="f_intro">Introtekst</label><textarea id="f_intro"></textarea>
+  <h2>Gem</h2>
+  <div class="row"><button id="copy">Kopiér JSON</button><button id="dl">Download</button></div>
+  <label for="tok">GitHub-token (kun adgang til dette repository)</label><input id="tok" type="password" autocomplete="off">
+  <div class="row"><label style="font-weight:400;margin:0"><input type="checkbox" id="rem" style="width:auto"> Husk på denne computer</label></div>
+  <div class="row"><button class="p" id="save">Gem på GitHub</button></div>
+  <div id="msg" role="status"></div>
+  <h2>Åbn en fil</h2><input type="file" id="file" accept=".json">
+ </div>
+</div>
+<script>
+// RET DISSE TRE LINJER til din GitHub (repository skal være offentligt for at siden kan læse det).
+const CFG={owner:"BRUGERNAVN",repo:"REPO",branch:"main",path:"bygninger.json"};
+
+const root=CFG.owner==="BRUGERNAVN"?"":`https://raw.githubusercontent.com/${CFG.owner}/${CFG.repo}/${CFG.branch}/`;
+const $=id=>document.getElementById(id),NS="http://www.w3.org/2000/svg",svg=$("map");
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.append(e);return e};
+const P=e=>{const m=svg.createSVGPoint();m.x=e.clientX;m.y=e.clientY;const s=m.matrixTransform(svg.getScreenCTM().inverse());return [+s.x.toFixed(1),+s.y.toFixed(1)]};
+const F={navn:"f_navn",type:"f_type",status:"f_status",hold:"f_hold",periode:"f_periode",tidsestimat:"f_tid",noegletal:"f_nogle",beskrivelse:"f_besk"};
+let D={titel:"Charmdal",intro:"",typer:{},bygninger:[]},sel=-1,pts=null,selPoly=null;
+const cur=()=>D.bygninger[sel];
+const msg=(t,err)=>{$("msg").textContent=t;$("msg").className=err?"err":""};
+
+function init(){
+ $("bg").setAttribute("href",root+"kort.svg");
+ $("f_type").replaceChildren(...Object.keys(D.typer).map(k=>new Option(k)));
+ $("f_titel").value=D.titel||"";$("f_intro").value=D.intro||"";
+ sel=-1;pts=null;redraw();
+}
+function redraw(){drawMap();drawList();fillForm()}
+function drawMap(){
+ $("zones").replaceChildren();$("hand").replaceChildren();svg.classList.toggle("drawing",!!pts);selPoly=null;
+ D.bygninger.forEach((b,i)=>{
+  if((i===sel&&pts)||!b.zone||b.zone.length<3)return;
+  const c=D.typer[b.type]||"#7a8793";
+  const p=el("polygon",{points:b.zone.join(" "),fill:c,"fill-opacity":b.status==="Planlagt"?.2:.5,stroke:c,class:"z"+(i===sel?" on":"")},$("zones"));
+  if(b.status==="Planlagt")p.setAttribute("stroke-dasharray","14 8");
+  if(i===sel)selPoly=p;
+  p.onclick=()=>{sel=i;redraw()};
+ });
+ const b=cur(),H=$("hand");
+ if(pts){
+  el("polyline",{points:pts.join(" "),fill:"none",stroke:"#000","stroke-width":4,"stroke-dasharray":"8 6"},H);
+  pts.forEach(q=>el("circle",{cx:q[0],cy:q[1],r:10,fill:"#fff",stroke:"#000","stroke-width":3},H));
+ }else if(b&&b.zone){
+  b.zone.forEach((q,k)=>{
+   const c=el("circle",{cx:q[0],cy:q[1],r:12,fill:"#fff",stroke:"#000","stroke-width":3,style:"cursor:move"},H);
+   c.onpointerdown=e=>{e.preventDefault();c.setPointerCapture(e.pointerId);
+    c.onpointermove=ev=>{const s=P(ev);q[0]=s[0];q[1]=s[1];c.setAttribute("cx",s[0]);c.setAttribute("cy",s[1]);if(selPoly)selPoly.setAttribute("points",b.zone.join(" "))};
+    c.onpointerup=()=>{c.onpointermove=null;c.onpointerup=null}};
+   c.oncontextmenu=e=>{e.preventDefault();if(b.zone.length>3){b.zone.splice(k,1);drawMap()}};
+  });
+ }
+}
+function drawList(){
+ const L=$("list");L.replaceChildren();
+ D.bygninger.forEach((b,i)=>{const x=document.createElement("button");x.textContent=b.navn||"(uden navn)";if(i===sel)x.className="on";x.onclick=()=>{sel=i;pts=null;redraw()};L.append(x)});
+}
+function fillForm(){
+ const b=cur();
+ for(const k in F){$(F[k]).value=b?(b[k]||""):"";$(F[k]).disabled=!b}
+ $("f_filer").value=b?(b.filer||[]).map(f=>f.navn+" | "+f.url).join("\n"):"";$("f_filer").disabled=!b;
+}
+for(const k in F)$(F[k]).addEventListener("input",()=>{const b=cur();if(!b)return;b[k]=$(F[k]).value;if(k==="navn")drawList();if(k==="type"||k==="status")drawMap()});
+$("f_filer").addEventListener("input",()=>{const b=cur();if(!b)return;
+ b.filer=$("f_filer").value.split("\n").map(l=>l.trim()).filter(Boolean).map(l=>{const i=l.indexOf("|");return i<0?{navn:l,url:l}:{navn:l.slice(0,i).trim(),url:l.slice(i+1).trim()}})});
+$("f_titel").addEventListener("input",()=>D.titel=$("f_titel").value);
+$("f_intro").addEventListener("input",()=>D.intro=$("f_intro").value);
+
+svg.addEventListener("click",e=>{if(pts){pts.push(P(e));drawMap()}});
+function startDraw(){if(!cur())return msg("Vælg en bygning først.",1);pts=[];msg("Klik hjørnerne på kortet, og tryk så Færdig (Enter).");drawMap()}
+function finish(){if(!pts)return;if(pts.length<3)return msg("Brug mindst tre hjørner.",1);cur().zone=pts;pts=null;msg("");redraw()}
+function cancel(){pts=null;msg("");redraw()}
+$("draw").onclick=startDraw;$("done").onclick=finish;$("cancel").onclick=cancel;
+addEventListener("keydown",e=>{if(!pts||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==="Enter")finish();if(e.key==="Escape")cancel()});
+$("new").onclick=()=>{D.bygninger.push({navn:"Ny bygning",type:Object.keys(D.typer)[0]||"Andet",hold:"",status:"Planlagt",zone:[],periode:"",tidsestimat:"",noegletal:"",beskrivelse:"",filer:[]});sel=D.bygninger.length-1;redraw();startDraw()};
+$("del").onclick=()=>{const b=cur();if(b&&confirm('Slet "'+b.navn+'"?')){D.bygninger.splice(sel,1);sel=-1;pts=null;redraw()}};
+
+const json=()=>JSON.stringify(D,null,1);
+$("copy").onclick=()=>navigator.clipboard.writeText(json()).then(()=>msg("JSON kopieret. Indsæt den i bygninger.json på GitHub."),()=>msg("Kunne ikke kopiere. Brug Download.",1));
+$("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([json()],{type:"application/json"}));a.download="bygninger.json";a.click()};
+$("file").onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{D=JSON.parse(t);init();msg("Fil åbnet.")}catch{msg("Filen er ikke gyldig JSON.",1)}})};
+
+try{$("tok").value=localStorage.getItem("charmdalTok")||"";$("rem").checked=!!$("tok").value}catch{}
+$("save").onclick=async()=>{
+ const tok=$("tok").value.trim();if(!tok)return msg("Indsæt dit GitHub-token først.",1);
+ if(CFG.owner==="BRUGERNAVN")return msg("Ret CFG øverst i editor.html til dit brugernavn og repository.",1);
+ try{if($("rem").checked)localStorage.setItem("charmdalTok",tok);else localStorage.removeItem("charmdalTok")}catch{}
+ const api=`https://api.github.com/repos/${CFG.owner}/${CFG.repo}/contents/${CFG.path}`,H={Authorization:"Bearer "+tok,Accept:"application/vnd.github+json"};
+ try{
+  let sha;const g=await fetch(api+"?ref="+CFG.branch,{headers:H});
+  if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)return msg("Kunne ikke læse filen på GitHub ("+g.status+"). Tjek token og navne.",1);
+  const body={message:"Opdater bygninger via editor",content:btoa(unescape(encodeURIComponent(json()))),branch:CFG.branch};if(sha)body.sha=sha;
+  const r=await fetch(api,{method:"PUT",headers:H,body:JSON.stringify(body)});
+  msg(r.ok?"Gemt på GitHub. Siden opdateres inden for få minutter.":"Kunne ikke gemme ("+r.status+"). Tjek tokenets rettigheder.",!r.ok);
+ }catch{msg("Ingen forbindelse til GitHub.",1)}
+};
+
+fetch(root+"bygninger.json").then(r=>r.json()).then(d=>{D=d;init()}).catch(()=>{init();msg("Kunne ikke hente bygninger.json. Brug 'Åbn en fil' nederst.",1)});
+</script>
+</body>
+</html>
