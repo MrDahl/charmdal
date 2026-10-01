@@ -37,7 +37,13 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til 600 lejligheder.",
-   "filer": []
+   "filer": [],
+   "billeder": [
+    {
+     "navn": "billede/lejlighed.png",
+     "url": "billede/lejlighed.png"
+    }
+   ]
   },
   {
    "navn": "Rækkehuse med havudsigt",
@@ -66,7 +72,13 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til 200 rækkehuse.\n100 af 2 etages / 100 etplans",
-   "filer": []
+   "filer": [],
+   "billeder": [
+    {
+     "navn": "billede/raekkehus.png",
+     "url": "billede/raekkehus.png"
+    }
+   ]
   },
   {
    "navn": "Dagligvarebutik",
@@ -95,7 +107,13 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til en dagligvarebutik.",
-   "filer": []
+   "filer": [],
+   "billeder": [
+    {
+     "navn": "billede/daglivarebutik.png",
+     "url": "billede/daglivarebutik.png"
+    }
+   ]
   },
   {
    "navn": "Vuggestue og Børnehave",
@@ -124,7 +142,13 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til vuggestue- og børnehaveinstitutioner.",
-   "filer": []
+   "filer": [],
+   "billeder": [
+    {
+     "navn": "billede/vuggestue.png",
+     "url": "billede/vuggestue.png"
+    }
+   ]
   },
   {
    "navn": "Kontor bygning",
