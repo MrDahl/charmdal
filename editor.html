@@ -128,7 +128,7 @@ function fillForm(){
 for(const k in F)$(F[k]).addEventListener("input",()=>{const b=cur();if(!b)return;b[k]=$(F[k]).value;if(k==="navn")drawList();if(k==="type"||k==="status")drawMap()});
 for(const [id,k] of [["f_filer","filer"],["f_bill","billeder"]])$(id).addEventListener("input",()=>{const b=cur();if(!b)return;
  b[k]=$(id).value.split("\n").map(l=>l.trim()).filter(Boolean).map(l=>{const i=l.indexOf("|");return i<0?{navn:l,url:l}:{navn:l.slice(0,i).trim(),url:l.slice(i+1).trim()}});if(k==="billeder")thumbs()});
-function thumbs(){const T=$("thumbs");T.replaceChildren();const b=cur();if(!b)return;(b.billeder||[]).forEach(f=>{const i=new Image();i.alt=f.navn||"";i.title=f.navn||f.url;i.src=/^https?:/i.test(f.url)?f.url:root+f.url;T.append(i)})}
+function thumbs(){const T=$("thumbs");T.replaceChildren();const b=cur();if(!b)return;(b.billeder||[]).forEach(f=>{const i=new Image();i.alt=f.navn||"";i.title=f.navn||f.url;const o=/^https?:/i.test(f.url)?f.url:encodeURI(root+f.url);i.src=root&&o.startsWith(root)?"https://wsrv.nl/?url="+encodeURIComponent(o)+"&w=120&we":o;i.onerror=()=>{i.onerror=null;i.src=o};T.append(i)})}
 function hint(){const d=!!pts,z=cur()&&cur().zone&&cur().zone.length;
  $("done").disabled=!d;$("cancel").disabled=!d;$("done").className=d?"p":"";$("draw").disabled=d;$("draw").textContent=z?"Tegn forfra":"Tegn område";
  $("hint").textContent=d?pts.length+" punkter. Klik på det grønne punkt (eller tryk Færdig/Enter) for at lukke området.":z?"Træk i hjørnerne. Klik på en kant for at tilføje et punkt. Højreklik på et hjørne for at fjerne det.":"Vælg en bygning, og tryk Tegn område."}
