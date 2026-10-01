@@ -183,6 +183,36 @@
    "noegletal": "",
    "beskrivelse": "Næste hold projekterer en stor ladepark til elbiler.",
    "filer": []
+  },
+  {
+   "navn": "Hospice",
+   "type": "Institution",
+   "hold": "",
+   "status": "Planlagt",
+   "zone": [
+    [
+     1179.1,
+     240.4
+    ],
+    [
+     1318.7,
+     252.3
+    ],
+    [
+     1305,
+     352.7
+    ],
+    [
+     1167.2,
+     339.1
+    ]
+   ],
+   "periode": "",
+   "tidsestimat": "",
+   "noegletal": "",
+   "beskrivelse": "",
+   "filer": [],
+   "billeder": []
   }
  ]
 }
