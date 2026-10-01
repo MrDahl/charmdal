@@ -37,7 +37,16 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til 600 lejligheder.",
-   "filer": [],
+   "filer": [
+    {
+     "navn": "plantegning/lejlighed.png",
+     "url": "plantegning/lejlighed.png"
+    },
+    {
+     "navn": "projekt/lejligheder.pdf",
+     "url": "projekt/lejligheder.pdf"
+    }
+   ],
    "billeder": [
     {
      "navn": "billede/lejlighed.png",
@@ -72,7 +81,24 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til 200 rækkehuse.\n100 af 2 etages / 100 etplans",
-   "filer": [],
+   "filer": [
+    {
+     "navn": "plantegning/raekkehus2plan.png",
+     "url": "plantegning/raekkehus2plan.png"
+    },
+    {
+     "navn": "plantegning/raekkehusv1plan1.png",
+     "url": "plantegning/raekkehusv1plan1.png"
+    },
+    {
+     "navn": "plantegning/raekkehusv2plan1.png.png",
+     "url": "plantegning/raekkehusv2plan1.png.png"
+    },
+    {
+     "navn": "projekt/raekkehuse.pdf",
+     "url": "projekt/raekkehuse.pdf"
+    }
+   ],
    "billeder": [
     {
      "navn": "billede/raekkehus.png",
@@ -107,7 +133,16 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til en dagligvarebutik.",
-   "filer": [],
+   "filer": [
+    {
+     "navn": "plantegning/dagligvarebutik.png",
+     "url": "plantegning/dagligvarebutik.png"
+    },
+    {
+     "navn": "projekt/dagligvarebutik.pdf",
+     "url": "projekt/dagligvarebutik.pdf"
+    }
+   ],
    "billeder": [
     {
      "navn": "billede/daglivarebutik.png",
@@ -142,7 +177,16 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til vuggestue- og børnehaveinstitutioner.",
-   "filer": [],
+   "filer": [
+    {
+     "navn": "plantegning/vuggestue.png",
+     "url": "plantegning/vuggestue.png"
+    },
+    {
+     "navn": "projekt/vuggestue.pdf",
+     "url": "projekt/vuggestue.pdf"
+    }
+   ],
    "billeder": [
     {
      "navn": "billede/vuggestue.png",
