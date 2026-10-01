@@ -11,26 +11,26 @@
  },
  "bygninger": [
   {
-   "navn": "600 lejligheder",
+   "navn": "Lejlighedskompleks",
    "type": "Bolig",
-   "hold": "Nuværende hold",
+   "hold": "September 2026",
    "status": "Projekteret",
    "zone": [
     [
-     728.0,
-     -22.5
+     738.7,
+     -9.4
     ],
     [
-     1104.2,
-     -51.9
+     917.1,
+     5.5
     ],
     [
-     1121.8,
-     318.4
+     891.2,
+     192
     ],
     [
-     745.7,
-     324.3
+     715.6,
+     174.3
     ]
    ],
    "periode": "",
@@ -40,55 +40,55 @@
    "filer": []
   },
   {
-   "navn": "200 rækkehuse",
+   "navn": "Rækkehuse med havudsigt",
    "type": "Bolig",
-   "hold": "Nuværende hold",
+   "hold": "September 2026",
    "status": "Projekteret",
    "zone": [
     [
-     1139.5,
-     -40.1
+     143.8,
+     19.2
     ],
     [
-     1427.5,
-     -40.1
+     667.9,
+     302.3
     ],
     [
-     1427.5,
-     324.3
+     640.7,
+     347.2
     ],
     [
-     1157.1,
-     324.3
+     124.8,
+     49.1
     ]
    ],
    "periode": "",
    "tidsestimat": "",
    "noegletal": "",
-   "beskrivelse": "Fuld el-entreprise projekteret til 200 rækkehuse.",
+   "beskrivelse": "Fuld el-entreprise projekteret til 200 rækkehuse.\n100 af 2 etages / 100 etplans",
    "filer": []
   },
   {
    "navn": "Dagligvarebutik",
    "type": "Handel",
-   "hold": "Nuværende hold",
+   "hold": "September 2026",
    "status": "Projekteret",
    "zone": [
     [
-     904.4,
-     341.9
+     904.8,
+     211.1
     ],
     [
-     1033.7,
-     341.9
+     1020.5,
+     223.4
     ],
     [
-     1033.7,
-     438.3
+     1011,
+     322.7
     ],
     [
-     910.2,
-     438.3
+     892.6,
+     310.5
     ]
    ],
    "periode": "",
@@ -98,26 +98,26 @@
    "filer": []
   },
   {
-   "navn": "Vuggestue og børnehave",
+   "navn": "Vuggestue og Børnehave",
    "type": "Institution",
-   "hold": "Nuværende hold",
+   "hold": "September 2026",
    "status": "Projekteret",
    "zone": [
     [
-     1057.2,
-     341.9
+     881.7,
+     393.5
     ],
     [
-     1198.2,
-     341.9
+     1001.5,
+     403
     ],
     [
-     1198.2,
-     438.3
+     989.2,
+     461.6
     ],
     [
-     1057.2,
-     438.3
+     876.2,
+     441.2
     ]
    ],
    "periode": "",
@@ -127,26 +127,26 @@
    "filer": []
   },
   {
-   "navn": "Kontorhus",
+   "navn": "Kontor bygning",
    "type": "Kontor",
    "hold": "Næste hold",
    "status": "Planlagt",
    "zone": [
     [
-     1451.0,
-     -28.4
+     1507.9,
+     75
     ],
     [
-     1627.3,
-     -28.4
+     1623.6,
+     87.2
     ],
     [
-     1627.3,
-     318.4
+     1599.1,
+     273.7
     ],
     [
-     1451.0,
-     318.4
+     1484.7,
+     260.1
     ]
    ],
    "periode": "",
@@ -162,20 +162,20 @@
    "status": "Planlagt",
    "zone": [
     [
-     1215.9,
-     628.7
+     1209.7,
+     644
     ],
     [
-     1480.3,
-     652.3
+     1340.4,
+     627.7
     ],
     [
-     1498.0,
-     755.7
+     1362.2,
+     723
     ],
     [
-     1233.5,
-     755.7
+     1228.8,
+     747.5
     ]
    ],
    "periode": "",
