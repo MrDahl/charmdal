@@ -583,6 +583,36 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": []
+  },
+  {
+   "navn": "Produktion af glas",
+   "type": "Kontor",
+   "hold": "",
+   "status": "Planlagt",
+   "zone": [
+    [
+     1201.2,
+     39.6
+    ],
+    [
+     1339.1,
+     53.2
+    ],
+    [
+     1318.7,
+     242.1
+    ],
+    [
+     1175.7,
+     228.5
+    ]
+   ],
+   "periode": "",
+   "tidsestimat": "",
+   "noegletal": "",
+   "beskrivelse": "",
+   "filer": [],
+   "billeder": []
   }
  ]
 }
