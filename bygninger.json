@@ -321,26 +321,26 @@
    "billeder": []
   },
   {
-   "navn": "Café og legeplads",
+   "navn": "Café",
    "type": "Andet",
    "hold": "",
    "status": "Planlagt",
    "zone": [
     [
-     1037.9,
-     509.2
+     1179.8,
+     484.7
     ],
     [
-     1310.1,
-     458.2
+     1310.5,
+     462.9
     ],
     [
      1318.7,
-     493.9
+     491.5
     ],
     [
-     1043,
-     529.7
+     1183.9,
+     509.2
     ]
    ],
    "periode": "",
@@ -545,6 +545,36 @@
     [
      1468.4,
      373.1
+    ]
+   ],
+   "periode": "",
+   "tidsestimat": "",
+   "noegletal": "",
+   "beskrivelse": "",
+   "filer": [],
+   "billeder": []
+  },
+  {
+   "navn": "Interaktiv legeplads",
+   "type": "Institution",
+   "hold": "",
+   "status": "Planlagt",
+   "zone": [
+    [
+     1037.9,
+     509.2
+    ],
+    [
+     1162.1,
+     487.1
+    ],
+    [
+     1168.9,
+     512.6
+    ],
+    [
+     1041.3,
+     529.7
     ]
    ],
    "periode": "",
