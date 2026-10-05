@@ -7,6 +7,12 @@
   "Institution": "#8a6fc0",
   "Kontor": "#3b7ea6",
   "Energi": "#d9a21b",
+  "Erhverv": "#2f8f9d",
+  "Produktion": "#a0643c",
+  "Idræt": "#c9577a",
+  "Udendørsarealer": "#6aa84f",
+  "Aktiviteter": "#e0736a",
+  "Infrastruktur": "#5f6f7e",
   "Andet": "#7a8793"
  },
  "bygninger": [
@@ -52,7 +58,10 @@
      "navn": "billede/lejlighed.png",
      "url": "billede/lejlighed.png"
     }
-   ]
+   ],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Rækkehuse med havudsigt",
@@ -104,7 +113,10 @@
      "navn": "billede/raekkehus.png",
      "url": "billede/raekkehus.png"
     }
-   ]
+   ],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Dagligvarebutik",
@@ -148,7 +160,10 @@
      "navn": "billede/daglivarebutik.png",
      "url": "billede/daglivarebutik.png"
     }
-   ]
+   ],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Vuggestue og Børnehave",
@@ -192,7 +207,10 @@
      "navn": "billede/vuggestue.png",
      "url": "billede/vuggestue.png"
     }
-   ]
+   ],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Kontor bygning",
@@ -221,7 +239,10 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Næste hold projekterer et stort kontorhus.",
-   "filer": []
+   "filer": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Ladepark til elbiler",
@@ -250,7 +271,10 @@
    "tidsestimat": "",
    "noegletal": "",
    "beskrivelse": "Næste hold projekterer en stor ladepark til elbiler.",
-   "filer": []
+   "filer": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Hospice",
@@ -280,7 +304,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Selvudviklingscenter",
@@ -318,7 +345,10 @@
    "noegletal": "",
    "beskrivelse": "whebfnwekf",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Café",
@@ -348,7 +378,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Parkeringshus",
@@ -382,7 +415,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Plejehjem",
@@ -412,7 +448,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Idrætsanlæg",
@@ -454,7 +493,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Svømmehal og vandpark",
@@ -492,7 +534,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Politistation",
@@ -522,7 +567,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Biograf",
@@ -552,7 +600,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Interaktiv legeplads",
@@ -582,7 +633,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   },
   {
    "navn": "Produktion af glas",
@@ -612,7 +666,10 @@
    "noegletal": "",
    "beskrivelse": "",
    "filer": [],
-   "billeder": []
+   "billeder": [],
+   "etaper": "",
+   "budget": "",
+   "forbrug": ""
   }
  ]
 }
