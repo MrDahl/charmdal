@@ -59,7 +59,7 @@
      "url": "billede/lejlighed.png"
     }
    ],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -114,7 +114,7 @@
      "url": "billede/raekkehus.png"
     }
    ],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -161,7 +161,7 @@
      "url": "billede/daglivarebutik.png"
     }
    ],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -208,7 +208,7 @@
      "url": "billede/vuggestue.png"
     }
    ],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -240,7 +240,7 @@
    "noegletal": "",
    "beskrivelse": "Næste hold projekterer et stort kontorhus.",
    "filer": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -272,7 +272,7 @@
    "noegletal": "",
    "beskrivelse": "Næste hold projekterer en stor ladepark til elbiler.",
    "filer": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -305,7 +305,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -346,7 +346,7 @@
    "beskrivelse": "whebfnwekf",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -379,7 +379,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -416,7 +416,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -449,7 +449,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -494,7 +494,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -535,7 +535,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -568,7 +568,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -601,7 +601,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -634,7 +634,7 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   },
@@ -667,9 +667,19 @@
    "beskrivelse": "",
    "filer": [],
    "billeder": [],
-   "etaper": "",
+   "etaper": [],
    "budget": "",
    "forbrug": ""
   }
+ ],
+ "projekteringer": [
+  "ABA (brandalarmering)",
+  "Nød- og panikbelysning",
+  "Lysberegning",
+  "Tavledimensionering",
+  "Kabeldimensionering",
+  "Kortslutningsberegning",
+  "Adgangskontrol (ADK)",
+  "Overvågning (CCTV)"
  ]
 }
