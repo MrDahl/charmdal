@@ -39,8 +39,8 @@
      173
     ]
    ],
-   "periode": "5 år",
-   "tidsestimat": "",
+   "periode": "4,5 år",
+   "tidsestimat": "640 uger",
    "noegletal": "",
    "beskrivelse": "Fuld el-entreprise projekteret til 600 lejligheder.",
    "filer": [
@@ -59,9 +59,44 @@
      "url": "billede/lejlighed.png"
     }
    ],
-   "etaper": [],
+   "etaper": [
+    {
+     "titel": "Etape 0",
+     "tekst": "Ansættelser, kontrakter, opgave fordelinger, opgaveoversigt, byggeplads"
+    },
+    {
+     "titel": "Etape 1",
+     "tekst": "Udgravning og støbning"
+    },
+    {
+     "titel": "Etape 2",
+     "tekst": "Vægge opføres"
+    },
+    {
+     "titel": "Etape 3",
+     "tekst": "Tag og endelige konstruktion"
+    },
+    {
+     "titel": "Etape 4",
+     "tekst": "Slutmontage, og verifikation"
+    },
+    {
+     "titel": "Afleveringsforretning",
+     "tekst": "Endelige aflevering af alt dokumentation til Bygherre"
+    }
+   ],
    "budget": "",
-   "forbrug": ""
+   "forbrug": "",
+   "projekteringer": [
+    "Kabeldimensionering",
+    "Kortslutningsberegning",
+    "Tavledimensionering",
+    "Adgangskontrol (ADK)"
+   ],
+   "dgnb": "Sølv",
+   "energimaerke": "A2020",
+   "velfaerd": "3",
+   "ikon": "home"
   },
   {
    "navn": "Rækkehuse med havudsigt",
@@ -460,16 +495,12 @@
    "status": "Planlagt",
    "zone": [
     [
-     156.4,
-     -21.7
+     159.9,
+     -20.9
     ],
     [
-     180.3,
-     -69.3
-    ],
-    [
-     216,
-     -67.6
+     191.1,
+     -79.4
     ],
     [
      663.5,
